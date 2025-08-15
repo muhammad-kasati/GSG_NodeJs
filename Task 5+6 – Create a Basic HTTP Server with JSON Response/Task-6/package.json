@@ -1,0 +1,16 @@
+{
+  "name": "task-6",
+  "version": "1.0.0",
+  "description": "This task demonstrates creating a **basic HTTP server** in Node.js using the built-in `http` module without any external frameworks.  \r The server handles multiple routes and returns responses in **JSON format**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "typescript": "^5.9.2"
+  }
+}
