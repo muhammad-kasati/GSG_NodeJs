@@ -1,7 +1,5 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { Repository } from "./shared/repository";
-import { User, Course } from "./types";
 import { AuthService } from "./auth/auth.service";
 import authRoutes from "./auth/auth.routes";
 import { UserService } from "./users/user.service";
@@ -13,16 +11,10 @@ import { errorHandler } from "./shared/middlewares";
 const app = express();
 app.use(bodyParser.json());
 
-// In-memory repositories
-const userRepo = new Repository<User>();
-const courseRepo = new Repository<Course>();
-
-// Add default admin
-const authService = new AuthService(userRepo);
-authService.register("Admin", "admin@no.com", "admin123", "ADMIN");
-
-const userService = new UserService(userRepo);
-const courseService = new CourseService(courseRepo);
+// Services
+const authService = new AuthService();
+const userService = new UserService();
+const courseService = new CourseService();
 
 // Routes
 app.use("/auth", authRoutes(authService));
